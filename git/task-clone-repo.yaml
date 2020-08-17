@@ -65,9 +65,7 @@ spec:
     - name: pipeline-debug
       description: Pipeline debug mode
       default: "0"
-    - name: VAULT_SECRET
-      description: Pipeline debug mode
-      default: "0"
+    - name: vaultsecret
   results:
     - name: git-repository
       description: The cloned repository
@@ -93,7 +91,7 @@ spec:
         valueFrom:
           secretKeyRef:
             name: $(params.continuous-delivery-context-secret)
-            key: $(params.vault-secret)
+            key: $(params.vaultsecret)
       - name: PIPELINE_DEBUG
         value: $(params.pipeline-debug)
   steps:
