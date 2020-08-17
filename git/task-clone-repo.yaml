@@ -101,6 +101,11 @@ spec:
       env:
         - name: REPOSITORY
           value: $(params.repository)
+        - name: vaultsecret
+          valueFrom:
+            secretKeyRef:
+              name: $(params.continuous-delivery-context-secret)
+              key: $(params.vaultsecret)
       script: |
         #!/bin/bash
         set -e -o pipefail
