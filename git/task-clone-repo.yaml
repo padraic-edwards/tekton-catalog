@@ -66,6 +66,7 @@ spec:
       description: Pipeline debug mode
       default: "0"
     - name: vaultsecret
+      default: ""
   results:
     - name: git-repository
       description: The cloned repository
