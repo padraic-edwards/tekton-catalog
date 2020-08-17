@@ -89,12 +89,11 @@ spec:
             name: $(params.continuous-delivery-context-secret)
             key: $(params.ibmcloud-apikey-secret-key)
             optional: true
-       - name: VAULT_SECRET
+      - name: VAULT_SECRET
         valueFrom:
           secretKeyRef:
             name: $(params.continuous-delivery-context-secret)
             key: $(params.vault-secret)
-            optional: true
       - name: PIPELINE_DEBUG
         value: $(params.pipeline-debug)
   steps:
