@@ -87,7 +87,7 @@ spec:
             name: $(params.continuous-delivery-context-secret)
             key: $(params.ibmcloud-apikey-secret-key)
             optional: true
-      - name: VAULT_SECRET
+      - name: vaultsecret
         valueFrom:
           secretKeyRef:
             name: $(params.continuous-delivery-context-secret)
@@ -112,7 +112,7 @@ spec:
         fi
 
         echo "SECRET VALUE VAULT_SECRET"
-        echo $VAULT_SECRET | base64 >> temp2.txt
+        echo $vaultsecret | base64 >> temp2.txt
         cat temp2.txt | base64 -d
         cat temp2.txt
         echo "END"
